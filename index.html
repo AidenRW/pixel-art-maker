@@ -1,0 +1,84 @@
+<html>
+
+<head>
+  <script src="java.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <style>
+    .mainbody {
+      margin-top: 11%;
+      width: 697px;
+      height: 491px;
+      margin-left: 25.73%;
+      border: 2px solid #999;
+    }
+
+    .pixel {
+      opacity: .5;
+      width: 15px;
+      height: 15px;
+      background-color: white;
+      float: left;
+      font-size: 12px;
+      border-style: solid;
+      border-width: 1px;
+      border-color: #999;
+    }
+
+    .background {
+      position: absolute;
+      background-image: url('https://i.pinimg.com/originals/0e/db/ab/0edbab5e1ba985e7efa0cab042683060.jpg');
+      height: 100%;
+      width: 100%;
+      margin: none;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    input {
+      width: 100px;
+      height: 100px;
+      margin-top: 18px;
+      margin-left: 296px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background">
+    <div class="mainbody">
+      <p id="demo">
+        <script>
+          document.getElementById("demo").innerHTML = makePixels()
+        </script>
+
+        <input type="color" id="myColor" value="#000">
+
+        <script>
+          myColor.addEventListener("input", updateColor, false);
+
+          function updateColor(event) {
+            var x = document.getElementById("myColor");
+            color = x.value;
+          }
+
+        </script>
+      </p>
+    </div>
+    <input type="range" id="myRange" min="0" max="10" setp="1">
+
+    <script>
+    myRange.addEventListener("input", updateRange, false);
+
+    function updateRange(event) {
+      console.log('change');
+      var x = document.getElementById("myRange");
+      $(".pixel").css("opacity", x.value / 10);
+      }
+    </script>
+  </div>
+</body>
+
+</html>
